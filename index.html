@@ -268,11 +268,25 @@ header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-
 
 /* PRINT */
 @media print{
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
   .no-print,.preview-bar{display:none!important;}
-  body,#previewPage{background:#fff;}
-  .preview-area{padding:0;}
-  .a4-sheet{box-shadow:none;border-radius:0;width:100%;}
-  .receipt-slot{break-inside:avoid;page-break-inside:avoid;}
+  body,#previewPage{background:#fff;margin:0;padding:0;}
+  .preview-area{padding:0;margin:0;display:block;}
+  .a4-sheet{
+    box-shadow:none;
+    border-radius:0;
+    width:210mm;
+    margin:0;
+    padding:0;
+  }
+  .receipt-slot{
+    break-inside:avoid;
+    page-break-inside:avoid;
+    height:74.25mm; /* 297mm / 4 */
+  }
   .receipt-slot.blank{display:none!important;}
 }
 </style>
