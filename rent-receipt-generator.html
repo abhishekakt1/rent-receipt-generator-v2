@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ PRIMARY SEO ═══ -->
+<title>Free Rent Receipt Generator India | Quarterly & Monthly | Print-Ready PDF</title>
+<meta name="description" content="Generate professional rent receipts online for free. Supports quarterly and monthly receipts for Indian financial year (Apr–Mar). Add landlord PAN, tenant details, property address. Print-ready A4 format. No signup required.">
+<meta name="keywords" content="rent receipt generator, rent receipt India, free rent receipt, HRA rent receipt, house rent receipt, quarterly rent receipt, monthly rent receipt, rent receipt with PAN, landlord receipt, tenant rent receipt, Indian rent receipt format, rent receipt for income tax, HRA exemption receipt, printable rent receipt">
+<meta name="author" content="Rent Receipt Generator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/rent-receipt-generator/">
+
+<!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Rent Receipt Generator India | Print-Ready | Quarterly & Monthly">
+<meta property="og:description" content="Instantly generate professional rent receipts for India. Quarterly or monthly, with PAN card, HRA-compliant. Free, no signup, print-ready A4.">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/rent-receipt-generator/">
+<meta property="og:site_name" content="Rent Receipt Generator">
+<meta property="og:locale" content="en_IN">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Rent Receipt Generator India">
+<meta name="twitter:description" content="Generate professional Indian rent receipts instantly. Free, print-ready, supports quarterly & monthly with PAN card details.">
+
+<!-- ═══ SCHEMA.ORG STRUCTURED DATA ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rent Receipt Generator India",
+  "url": "https://YOUR-USERNAME.github.io/rent-receipt-generator/",
+  "description": "Free online tool to generate professional rent receipts for India. Supports quarterly and monthly receipts, landlord PAN, HRA compliance, and A4 print format.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  },
+  "featureList": [
+    "Quarterly rent receipts (Indian FY Apr–Mar)",
+    "Monthly rent receipts",
+    "Landlord PAN card support",
+    "HRA exemption compliant",
+    "Print-ready A4 format",
+    "4 receipts per A4 page",
+    "Amount in words",
+    "No signup required",
+    "Free to use"
+  ],
+  "inLanguage": "en-IN",
+  "isAccessibleForFree": true
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16120d;--paper:#f0ece4;--accent:#b54520;
+  --muted:#80746a;--border:#d4c9b8;--card:#fdfcf8;
+  --shadow:rgba(22,18,13,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;}
+
+/* APP HEADER */
+header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.22);}
+.logo{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-.3px;}
+.logo span{color:var(--accent);}
+.tagline{font-size:11px;color:#9a8a76;}
+
+/* FORM */
+.main-wrap{max-width:800px;margin:0 auto;padding:26px 18px 56px;}
+.form-panel{background:var(--card);border:1px solid var(--border);border-radius:9px;box-shadow:0 3px 16px var(--shadow);padding:26px 30px;}
+.sec-head{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;color:var(--muted);margin-bottom:13px;padding-bottom:7px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+.divider{height:1px;background:var(--border);margin:20px 0;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:13px;}
+.full{grid-column:1/-1;}
+.field{display:flex;flex-direction:column;gap:4px;}
+.field label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);}
+.field input,.field textarea{border:1.5px solid var(--border);border-radius:5px;padding:8px 10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);background:#fff;transition:border-color .14s;outline:none;}
+.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(181,69,32,.08);}
+.field textarea{resize:vertical;min-height:52px;}
+
+.mode-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:15px;}
+.mode-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-right:3px;}
+.mode-btn{padding:5px 14px;border:1.5px solid var(--border);border-radius:13px;background:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .14s;color:var(--muted);}
+.mode-btn.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+.mode-btn:hover:not(.active){border-color:var(--muted);color:var(--ink);}
+
+.fy-row{display:flex;align-items:center;gap:10px;margin-bottom:15px;}
+.fy-row label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);}
+.fy-input{border:1.5px solid var(--border);border-radius:5px;padding:6px 10px;font-family:'DM Sans',sans-serif;font-size:13px;background:#fff;outline:none;width:80px;color:var(--ink);}
+.fy-input:focus{border-color:var(--accent);}
+.fy-derived{font-size:12px;color:var(--muted);font-weight:500;}
+
+.qtr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+.qtr-chip{padding:10px 6px;border:1.5px solid var(--border);border-radius:6px;text-align:center;cursor:pointer;transition:all .14s;background:#fff;user-select:none;}
+.qtr-chip:hover:not(.selected){border-color:var(--muted);}
+.qc-range{font-size:12px;font-weight:600;color:var(--ink);}
+.qc-months{font-size:10px;color:var(--muted);margin-top:2px;}
+.qtr-chip.selected{background:#1d5438;border-color:#1d5438;}
+.qtr-chip.selected .qc-range,.qtr-chip.selected .qc-months{color:#fff;}
+
+.month-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+.month-chip{padding:7px 4px;border:1.5px solid var(--border);border-radius:5px;text-align:center;cursor:pointer;transition:all .14s;background:#fff;font-size:12px;font-weight:500;color:var(--muted);user-select:none;}
+.month-chip:hover:not(.selected){border-color:var(--muted);color:var(--ink);}
+.month-chip.selected{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+.sel-summary{font-size:11px;color:#1d5438;font-weight:500;margin-top:8px;min-height:16px;}
+.info-note{background:#f5f0e0;border:1px solid #d8ca94;border-radius:5px;padding:9px 13px;font-size:11px;color:#5c5018;line-height:1.5;}
+.btn-gen{margin-top:20px;background:var(--accent);color:#fff;border:none;padding:10px 26px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .14s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 3px 10px rgba(181,69,32,.28);}
+.btn-gen:hover{background:#963716;transform:translateY(-1px);}
+
+/* PREVIEW */
+#previewPage{display:none;}
+.preview-bar{background:var(--ink);color:#f0ece4;padding:10px 32px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;}
+.back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 12px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all .14s;}
+.back-btn:hover{border-color:#888;color:#fff;}
+.pv-title{font-size:15px;font-weight:600;}
+.pv-meta{font-size:11px;color:#9a8a76;}
+.print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .14s;}
+.print-btn:hover{background:#963716;}
+.preview-area{padding:22px 16px 44px;display:flex;flex-direction:column;align-items:center;}
+
+/* ═══════════════════════════════════
+   A4 SHEET  794 × 1122px @ 96dpi
+   4 slots × 280px = 1120px
+   Blank slots: display:none = zero space
+═══════════════════════════════════ */
+.a4-sheet{width:794px;background:#fff;box-shadow:0 5px 26px rgba(0,0,0,.15);border-radius:2px;}
+
+.receipt-slot{
+  width:100%;height:280px;
+  border-bottom:1px dashed #c0b8a6;
+  display:grid;
+  grid-template-rows:auto 1fr auto 32px;
+  padding:14px 36px 0px;
+  overflow:hidden;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  color:#16120d;
+}
+.receipt-slot:last-child{border-bottom:none;}
+.receipt-slot.blank{display:none;}
+
+/* ── RECEIPT INNER ── */
+
+/* ROW 1: header */
+.r-header{
+  display:grid;
+  grid-template-columns:110px 1fr 110px;
+  align-items:start;
+  margin-bottom:10px;
+}
+.r-no{font-size:14px;font-weight:700;line-height:1;}
+.r-fy{font-size:12px;color:var(--muted);margin-top:2px;}
+
+.r-title-block{text-align:center;}
+.r-title{
+  display:inline-block;
+  border:2px solid #16120d;
+  padding:5px 22px;
+  font-size:16px;font-weight:700;
+  letter-spacing:1.8px;text-transform:uppercase;
+}
+.r-period{
+  font-size:12px;font-weight:600;
+  letter-spacing:.7px;text-transform:uppercase;
+  margin-top:5px;
+}
+
+/* CHANGE 1: "Date:" instead of "Dated" */
+.r-date-block{text-align:right;}
+.r-date-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);}
+.r-date-val{font-size:14px;font-weight:700;margin-top:1px;}
+
+/* ROW 2: content — 2-col grid. Each field takes its natural width. */
+.r-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-content:space-evenly;
+  gap:16px 32px;
+  padding:6px 0 4px;
+}
+/* Full-width fields span both columns */
+.r-field.full-row{
+  grid-column:1/-1;
+}
+/* Second-column fields nudged right — explicit class, not nth-child */
+.r-field.col2{
+  padding-left:24px;
+}
+
+/* Field lines: label bold left, value with dotted underline filling remaining space */
+.r-field{
+  display:flex;
+  align-items:baseline;
+  gap:0;
+  line-height:1;
+}
+.r-field-lbl{
+  font-size:14px;font-weight:700;
+  white-space:nowrap;flex-shrink:0;
+  margin-right:5px;
+}
+.r-field-val{
+  font-size:14px;font-weight:500;
+  color:#16120d;
+  flex:1;
+  border-bottom:1px dotted #999;
+  padding-bottom:2px;
+  min-width:30px;
+}
+.r-field-val em{font-style:italic;font-weight:400;}
+
+
+
+/* ROW 3: footer */
+.r-footer{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:end;
+  padding-top:4px;
+  gap:20px;
+}
+
+/* CHANGE 2: footer left = "Total:" label + amount box side by side */
+.r-footer-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.r-total-lbl{
+  font-size:17px;font-weight:700;
+  white-space:nowrap;
+}
+.r-amt-box{
+  border:2px solid #16120d;
+  padding:6px 20px;
+  font-size:17px;font-weight:700;
+  white-space:nowrap;
+}
+
+/* sig + stamp — unchanged */
+.r-sig-col{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+}
+.r-stamp{
+  width:62px;height:46px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  font-size:7.5px;color:#a0988a;
+  line-height:1.5;text-align:center;
+}
+.r-sig{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.r-sig-line{width:110px;height:1px;background:#16120d;}
+.r-sig-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+
+/* PRINT */
+@media print{
+  .no-print,.preview-bar{display:none!important;}
+  body,#previewPage{background:#fff;}
+  .preview-area{padding:0;}
+  .a4-sheet{box-shadow:none;border-radius:0;width:100%;}
+  .receipt-slot{break-inside:avoid;page-break-inside:avoid;}
+  .receipt-slot.blank{display:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ FORM PAGE ════════ -->
+<div id="formPage">
+  <header role="banner">
+    <div>
+      <div class="logo" role="heading" aria-level="1">Rent<span>Receipt</span></div>
+      <div class="tagline">Free Indian Rent Receipt Generator</div>
+    </div>
+    <div style="margin-left:auto;font-size:11px;color:#9a8a76;text-align:right;">
+      <span style="color:#6a5a48;">Created by</span><br>
+      <span style="color:#c8b898;font-weight:600;letter-spacing:.3px;">Abhishek Tripathi</span>
+    </div>
+  </header>
+
+  <div class="main-wrap">
+    <div class="form-panel">
+
+      <div class="sec-head"><span class="sdot"></span>Landlord Details</div>
+      <div class="g2">
+        <div class="field">
+          <label>Landlord Name</label>
+          <input id="landlordName" type="text" placeholder="e.g. Ramesh Kumar Sharma"/>
+        </div>
+        <div class="field">
+          <label>PAN Number <span style="font-weight:400;text-transform:none">(optional)</span></label>
+          <input id="landlordPAN" type="text" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase"/>
+        </div>
+        <div class="field full">
+          <label>Rental Property Address</label>
+          <textarea id="propertyAddress" placeholder="Full address of the rented property…"></textarea>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="sec-head"><span class="sdot"></span>Tenant Details</div>
+      <div class="g2">
+        <div class="field">
+          <label>Tenant Name</label>
+          <input id="tenantName" type="text" placeholder="e.g. Priya Mehta"/>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="sec-head"><span class="sdot"></span>Rent &amp; Charges</div>
+      <div class="g4">
+        <div class="field">
+          <label>Monthly Rent (₹)</label>
+          <input id="monthlyRent" type="number" placeholder="e.g. 15000" min="0"/>
+        </div>
+        <div class="field">
+          <label>Other Charges (₹) <span style="font-weight:400;text-transform:none">(optional)</span></label>
+          <input id="otherCharges" type="number" placeholder="e.g. 500" min="0"/>
+        </div>
+        <div class="field">
+          <label>Other Charges Label <span style="font-weight:400;text-transform:none">(optional)</span></label>
+          <input id="otherLabel" type="text" placeholder="e.g. Maintenance"/>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="sec-head"><span class="sdot"></span>Numbering</div>
+      <div class="g3">
+        <div class="field">
+          <label>Receipt Prefix</label>
+          <input id="receiptPrefix" type="text" placeholder="e.g. RR" value="RR"/>
+        </div>
+        <div class="field">
+          <label>Starting Number</label>
+          <input id="receiptStart" type="number" placeholder="1" value="1" min="1"/>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="sec-head"><span class="sdot"></span>Receipt Period</div>
+      <div class="fy-row">
+        <label>FY Start Year</label>
+        <input class="fy-input" id="fyYear" type="number" placeholder="2025" min="2000" max="2100" value="2025" oninput="updateFyLabel()"/>
+        <span class="fy-derived" id="fyDerived">FY 2025–26</span>
+      </div>
+
+      <div class="mode-row">
+        <span class="mode-lbl">Mode</span>
+        <button class="mode-btn active" id="modeQtrAll" onclick="setMode('qtr-all')">Quarterly — Full Year</button>
+        <button class="mode-btn" id="modeQtr"    onclick="setMode('qtr')">Quarterly — Select</button>
+        <button class="mode-btn" id="modeMonth"  onclick="setMode('month')">Monthly — Select</button>
+      </div>
+
+      <div id="panelQtrAll" style="display:block">
+        <div class="info-note">All four quarters (Apr–Jun, Jul–Sep, Oct–Dec, Jan–Mar) will be generated on one A4 page.</div>
+      </div>
+      <div id="panelQtr" style="display:none">
+        <div class="qtr-grid" id="qtrGrid"></div>
+        <div class="sel-summary" id="qtrSummary">Select one or more quarters above</div>
+      </div>
+      <div id="panelMonth" style="display:none">
+        <div class="month-grid" id="monthGrid"></div>
+        <div class="sel-summary" id="monthSummary">Select one or more months above</div>
+      </div>
+
+      <button class="btn-gen" onclick="generateReceipts()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Preview Receipts
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PREVIEW PAGE ════════ -->
+<div id="previewPage">
+  <div class="preview-bar no-print">
+    <button class="back-btn" onclick="showForm()">← Back</button>
+    <span class="pv-title">Receipt Preview</span>
+    <span class="pv-meta" id="pvMeta"></span>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print
+    </button>
+  </div>
+  <div class="preview-area" id="previewArea"></div>
+</div>
+
+<script>
+function updateFyLabel(){
+  const y=parseInt(document.getElementById('fyYear').value)||2025;
+  document.getElementById('fyDerived').textContent=`FY ${y}–${(y+1).toString().slice(-2)}`;
+}
+updateFyLabel();
+
+const QUARTERS=[
+  {range:'Apr–Jun',nums:[3,4,5],  short:['Apr','May','Jun']},
+  {range:'Jul–Sep',nums:[6,7,8],  short:['Jul','Aug','Sep']},
+  {range:'Oct–Dec',nums:[9,10,11],short:['Oct','Nov','Dec']},
+  {range:'Jan–Mar',nums:[0,1,2],  short:['Jan','Feb','Mar']},
+];
+const ALL_MONTHS=[
+  {s:'Apr',n:3},{s:'May',n:4},{s:'Jun',n:5},
+  {s:'Jul',n:6},{s:'Aug',n:7},{s:'Sep',n:8},
+  {s:'Oct',n:9},{s:'Nov',n:10},{s:'Dec',n:11},
+  {s:'Jan',n:0},{s:'Feb',n:1},{s:'Mar',n:2},
+];
+const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MN3=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+let mode='qtr-all',selQ=new Set(),selM=new Set();
+
+function setMode(m){
+  mode=m;
+  ['modeQtrAll','modeQtr','modeMonth'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  ['panelQtrAll','panelQtr','panelMonth'].forEach(id=>document.getElementById(id).style.display='none');
+  const mp={'qtr-all':['modeQtrAll','panelQtrAll'],'qtr':['modeQtr','panelQtr'],'month':['modeMonth','panelMonth']};
+  document.getElementById(mp[m][0]).classList.add('active');
+  document.getElementById(mp[m][1]).style.display='block';
+}
+
+function buildQtrs(){
+  const g=document.getElementById('qtrGrid');g.innerHTML='';
+  QUARTERS.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.className='qtr-chip'+(selQ.has(i)?' selected':'');
+    d.innerHTML=`<div class="qc-range">${q.range}</div><div class="qc-months">${q.short.join(' · ')}</div>`;
+    d.onclick=()=>{selQ.has(i)?selQ.delete(i):selQ.add(i);buildQtrs();syncQS();};
+    g.appendChild(d);
+  });
+}
+function syncQS(){const el=document.getElementById('qtrSummary');el.textContent=selQ.size?[...selQ].sort().map(i=>QUARTERS[i].range).join('  ·  '):'Select one or more quarters above';}
+
+function buildMonths(){
+  const g=document.getElementById('monthGrid');g.innerHTML='';
+  ALL_MONTHS.forEach((m,i)=>{
+    const d=document.createElement('div');
+    d.className='month-chip'+(selM.has(i)?' selected':'');
+    d.textContent=m.s;
+    d.onclick=()=>{selM.has(i)?selM.delete(i):selM.add(i);buildMonths();syncMS();};
+    g.appendChild(d);
+  });
+}
+function syncMS(){const el=document.getElementById('monthSummary');el.textContent=selM.size?[...selM].sort((a,b)=>a-b).map(i=>ALL_MONTHS[i].s).join('  ·  '):'Select one or more months above';}
+
+buildQtrs();buildMonths();
+
+function showForm(){document.getElementById('formPage').style.display='block';document.getElementById('previewPage').style.display='none';}
+function showPreview(){document.getElementById('formPage').style.display='none';document.getElementById('previewPage').style.display='block';}
+
+function mYear(idx,fy){return idx<=2?{m:idx,y:fy+1}:{m:idx,y:fy};}
+
+function periodLabel(months,fy){
+  if(months.length===1){const{m,y}=mYear(months[0],fy);return MN[m].toUpperCase()+' '+y;}
+  const f=mYear(months[0],fy),l=mYear(months[months.length-1],fy);
+  return MN[f.m].toUpperCase()+' '+f.y+' TO '+MN[l.m].toUpperCase()+' '+l.y;
+}
+
+function receiptDate(months,fy){
+  const{m,y}=mYear(months[0],fy);
+  return `01-${MN3[m]}-${y}`;
+}
+
+function inr(n){return new Intl.NumberFormat('en-IN').format(n);}
+
+const ONES=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+const TENS=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+function chk(n){
+  if(!n)return'';
+  if(n<20)return ONES[n]+' ';
+  if(n<100)return TENS[Math.floor(n/10)]+(n%10?' '+ONES[n%10]:'')+' ';
+  return ONES[Math.floor(n/100)]+' Hundred '+(n%100?chk(n%100):'');
+}
+function numWords(n){
+  if(!n)return'Zero Only';
+  let r='',x=Math.floor(n);
+  const cr=Math.floor(x/10000000);x%=10000000;
+  const lk=Math.floor(x/100000);x%=100000;
+  const th=Math.floor(x/1000);x%=1000;
+  const hu=Math.floor(x/100);x%=100;
+  if(cr)r+=chk(cr)+'Crore ';
+  if(lk)r+=chk(lk)+'Lakh ';
+  if(th)r+=chk(th)+'Thousand ';
+  if(hu)r+=ONES[hu]+' Hundred ';
+  if(x)r+=chk(x);
+  return r.trim()+' Only';
+}
+
+function generateReceipts(){
+  const landlord = document.getElementById('landlordName').value.trim()||'';
+  const pan      = document.getElementById('landlordPAN').value.trim().toUpperCase();
+  const addr     = document.getElementById('propertyAddress').value.trim()||'';
+  const tenant   = document.getElementById('tenantName').value.trim()||'';
+  const mRent    = parseFloat(document.getElementById('monthlyRent').value)||0;
+  const other    = parseFloat(document.getElementById('otherCharges').value)||0;
+  const otherLbl = document.getElementById('otherLabel').value.trim()||'Other Charges';
+  const prefix   = document.getElementById('receiptPrefix').value.trim()||'RR';
+  const start    = parseInt(document.getElementById('receiptStart').value)||1;
+  const fy       = parseInt(document.getElementById('fyYear').value)||2025;
+  const fyLabel  = `FY ${fy}–${(fy+1).toString().slice(-2)}`;
+
+  let receipts=[];
+  if(mode==='qtr-all'){
+    QUARTERS.forEach(q=>receipts.push({months:q.nums}));
+  }else if(mode==='qtr'){
+    if(!selQ.size){alert('Please select at least one quarter.');return;}
+    [...selQ].sort().forEach(i=>receipts.push({months:QUARTERS[i].nums}));
+  }else{
+    if(!selM.size){alert('Please select at least one month.');return;}
+    [...selM].sort((a,b)=>a-b).forEach(i=>receipts.push({months:[ALL_MONTHS[i].n]}));
+  }
+
+  const SLOTS=Math.ceil(receipts.length/4)*4;
+  let html='<div class="a4-sheet">';
+
+  for(let s=0;s<SLOTS;s++){
+    if(s<receipts.length){
+      const r      = receipts[s];
+      const total  = mRent*r.months.length + other*r.months.length;
+      const period = periodLabel(r.months,fy);
+      const date   = receiptDate(r.months,fy);
+      const rNo    = String(start+s);
+      const words  = numWords(total);
+      const landlordLine = landlord+(pan?`  (PAN: ${pan})`:'');
+      const addrLine = addr.replace(/\n/g,', ');
+      // Duration: e.g. "OCT-25" to "DEC-25"
+      const fmy = mYear(r.months[0], fy);
+      const lmy = mYear(r.months[r.months.length-1], fy);
+      const fromLabel = `${MN3[fmy.m]}-${String(fmy.y).slice(-2)}`;
+      const toLabel   = `${MN3[lmy.m]}-${String(lmy.y).slice(-2)}`;
+
+      html+=`<div class="receipt-slot">
+        <div class="r-header">
+          <div>
+            <div class="r-no">No: ${rNo}</div>
+            <div class="r-fy">${fyLabel}</div>
+          </div>
+          <div class="r-title-block">
+            <div class="r-title">Rent Receipt</div>
+            <div class="r-period">${period}</div>
+          </div>
+          <div class="r-date-block">
+            <div class="r-date-lbl">Date:</div>
+            <div class="r-date-val">${date}</div>
+          </div>
+        </div>
+        <div class="r-content">
+          <div class="r-field">
+            <span class="r-field-lbl">Landlord:</span>
+            <span class="r-field-val">${landlord}${pan?` (PAN: ${pan})`:''}</span>
+          </div>
+          <div class="r-field col2">
+            <span class="r-field-lbl">Tenant:</span>
+            <span class="r-field-val">${tenant}</span>
+          </div>
+          <div class="r-field full-row">
+            <span class="r-field-lbl">Property Address:</span>
+            <span class="r-field-val">${addrLine}</span>
+          </div>
+          <div class="r-field">
+            <span class="r-field-lbl">Monthly Rent:</span>
+            <span class="r-field-val">₹ ${inr(mRent)}</span>
+          </div>
+          <div class="r-field col2">
+            <span class="r-field-lbl">From:</span>
+            <span class="r-field-val">${fromLabel}&nbsp;&nbsp;<span style="font-weight:700;">To:</span>&nbsp;${toLabel}</span>
+          </div>
+          ${other>0?`<div class="r-field full-row">
+            <span class="r-field-lbl">${otherLbl}:</span>
+            <span class="r-field-val">₹ ${inr(other)}</span>
+          </div>`:''}
+          <div class="r-field full-row">
+            <span class="r-field-lbl">The Sum of Rupees:</span>
+            <span class="r-field-val"><em>${words}</em></span>
+          </div>
+        </div>
+        <div class="r-footer">
+          <div class="r-footer-left">
+            <span class="r-total-lbl">Total:</span>
+            <div class="r-amt-box">₹ ${inr(total)} /-</div>
+          </div>
+          <div class="r-sig-col">
+            <div class="r-stamp">Affix<br>Revenue<br>Stamp</div>
+            <div class="r-sig">
+              <div class="r-sig-line"></div>
+              <div class="r-sig-lbl">Landlord's Signature</div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }else{
+      html+=`<div class="receipt-slot blank"></div>`;
+    }
+  }
+
+  html+='</div>';
+  document.getElementById('previewArea').innerHTML=html;
+  document.getElementById('pvMeta').textContent=`${receipts.length} receipt${receipts.length>1?'s':''} · ${fyLabel}`;
+  showPreview();
+}
+</script>
+<!-- SEO CONTENT: visible to search engines, hidden in app UI -->
+<section id="seoContent" style="max-width:860px;margin:0 auto;padding:40px 20px 60px;font-family:'DM Sans',sans-serif;color:#444;line-height:1.7;">
+  <h1 style="font-size:24px;font-weight:700;color:#16120d;margin-bottom:12px;">Free Rent Receipt Generator for India</h1>
+  <p>Generate professional, print-ready rent receipts instantly — no signup, no cost. Designed for the Indian financial year (April to March), this tool supports quarterly and monthly receipts with all details required for HRA tax exemption claims.</p>
+
+  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">Why You Need a Proper Rent Receipt</h2>
+  <p>Rent receipts are mandatory for claiming House Rent Allowance (HRA) exemption under Section 10(13A) of the Indian Income Tax Act. If your annual rent exceeds ₹1,00,000, your landlord's PAN card number must be included on the receipt. Our generator handles all of this automatically.</p>
+
+  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">Features</h2>
+  <ul style="padding-left:20px;">
+    <li>Quarterly receipts aligned to Indian FY (Q1: Apr–Jun, Q2: Jul–Sep, Q3: Oct–Dec, Q4: Jan–Mar)</li>
+    <li>Monthly receipts for any month</li>
+    <li>Landlord PAN card field for HRA compliance</li>
+    <li>Amount in words auto-generated</li>
+    <li>4 receipts per A4 page — ready to print and cut</li>
+    <li>Revenue stamp placeholder</li>
+    <li>Landlord signature line</li>
+    <li>Completely free — no account needed</li>
+  </ul>
+
+  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">How to Generate a Rent Receipt</h2>
+  <ol style="padding-left:20px;">
+    <li>Enter landlord name, PAN (if applicable), and property address</li>
+    <li>Enter tenant name and monthly rent amount</li>
+    <li>Select the financial year and period (quarterly or monthly)</li>
+    <li>Click Preview — your receipts are generated instantly</li>
+    <li>Print directly from the browser — A4 format, 4 receipts per page</li>
+  </ol>
+
+  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">Frequently Asked Questions</h2>
+  <p><strong>Is this rent receipt generator free?</strong><br>Yes, completely free. No signup, no watermark, no hidden charges.</p>
+  <p style="margin-top:12px;"><strong>Is the receipt valid for HRA claims?</strong><br>Yes. The receipt includes all fields required by Indian income tax rules — landlord name, PAN, tenant name, property address, period, and amount.</p>
+  <p style="margin-top:12px;"><strong>Do I need the landlord's PAN?</strong><br>If your annual rent is more than ₹1,00,000, you must include the landlord's PAN on the receipt as per Income Tax rules.</p>
+  <p style="margin-top:12px;"><strong>Can I generate receipts for specific months?</strong><br>Yes. Switch to "Monthly — Select" mode and pick any individual months you need.</p>
+</section>
+
+</body>
+</html>
