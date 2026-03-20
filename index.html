@@ -388,6 +388,22 @@ header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-
 
     </div>
   </div>
+
+  <!-- SEO content — visible on form page only, hidden on receipt preview -->
+  <section style="max-width:800px;margin:0 auto;padding:32px 20px 48px;font-family:'DM Sans',sans-serif;color:#6a5c4e;line-height:1.7;border-top:1px solid #d4c9b8;margin-top:8px;">
+    <h2 style="font-size:15px;font-weight:700;color:#16120d;margin-bottom:8px;">Free Rent Receipt Generator for India</h2>
+    <p style="font-size:13px;">Generate HRA-compliant rent receipts instantly — quarterly or monthly, with landlord PAN, amount in words, and A4 print layout. Designed for the Indian financial year (Apr–Mar). No signup, no cost.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;margin-top:16px;font-size:12px;">
+      <div>✦ &nbsp;Supports Indian FY (Apr–Mar) quarters</div>
+      <div>✦ &nbsp;Landlord PAN for HRA tax exemption</div>
+      <div>✦ &nbsp;Amount in words auto-generated</div>
+      <div>✦ &nbsp;4 receipts per A4 page, print &amp; cut</div>
+      <div>✦ &nbsp;Select specific months or quarters</div>
+      <div>✦ &nbsp;100% free — no account needed</div>
+    </div>
+    <p style="font-size:11px;color:#a09080;margin-top:16px;">Rent receipts are required under Section 10(13A) of the Income Tax Act for HRA exemption. Landlord PAN is mandatory if annual rent exceeds ₹1,00,000.</p>
+  </section>
+
 </div>
 
 <!-- ════════ PREVIEW PAGE ════════ -->
@@ -617,41 +633,4 @@ function generateReceipts(){
   showPreview();
 }
 </script>
-<!-- SEO CONTENT: visible to search engines, hidden in app UI -->
-<section id="seoContent" style="max-width:860px;margin:0 auto;padding:40px 20px 60px;font-family:'DM Sans',sans-serif;color:#444;line-height:1.7;">
-  <h1 style="font-size:24px;font-weight:700;color:#16120d;margin-bottom:12px;">Free Rent Receipt Generator for India</h1>
-  <p>Generate professional, print-ready rent receipts instantly — no signup, no cost. Designed for the Indian financial year (April to March), this tool supports quarterly and monthly receipts with all details required for HRA tax exemption claims.</p>
-
-  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">Why You Need a Proper Rent Receipt</h2>
-  <p>Rent receipts are mandatory for claiming House Rent Allowance (HRA) exemption under Section 10(13A) of the Indian Income Tax Act. If your annual rent exceeds ₹1,00,000, your landlord's PAN card number must be included on the receipt. Our generator handles all of this automatically.</p>
-
-  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">Features</h2>
-  <ul style="padding-left:20px;">
-    <li>Quarterly receipts aligned to Indian FY (Q1: Apr–Jun, Q2: Jul–Sep, Q3: Oct–Dec, Q4: Jan–Mar)</li>
-    <li>Monthly receipts for any month</li>
-    <li>Landlord PAN card field for HRA compliance</li>
-    <li>Amount in words auto-generated</li>
-    <li>4 receipts per A4 page — ready to print and cut</li>
-    <li>Revenue stamp placeholder</li>
-    <li>Landlord signature line</li>
-    <li>Completely free — no account needed</li>
-  </ul>
-
-  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">How to Generate a Rent Receipt</h2>
-  <ol style="padding-left:20px;">
-    <li>Enter landlord name, PAN (if applicable), and property address</li>
-    <li>Enter tenant name and monthly rent amount</li>
-    <li>Select the financial year and period (quarterly or monthly)</li>
-    <li>Click Preview — your receipts are generated instantly</li>
-    <li>Print directly from the browser — A4 format, 4 receipts per page</li>
-  </ol>
-
-  <h2 style="font-size:18px;font-weight:700;color:#16120d;margin:24px 0 8px;">Frequently Asked Questions</h2>
-  <p><strong>Is this rent receipt generator free?</strong><br>Yes, completely free. No signup, no watermark, no hidden charges.</p>
-  <p style="margin-top:12px;"><strong>Is the receipt valid for HRA claims?</strong><br>Yes. The receipt includes all fields required by Indian income tax rules — landlord name, PAN, tenant name, property address, period, and amount.</p>
-  <p style="margin-top:12px;"><strong>Do I need the landlord's PAN?</strong><br>If your annual rent is more than ₹1,00,000, you must include the landlord's PAN on the receipt as per Income Tax rules.</p>
-  <p style="margin-top:12px;"><strong>Can I generate receipts for specific months?</strong><br>Yes. Switch to "Monthly — Select" mode and pick any individual months you need.</p>
-</section>
-
-</body>
-</html>
+<!-- SEO CONTENT: inside formPage so it hides when preview is shown -->
