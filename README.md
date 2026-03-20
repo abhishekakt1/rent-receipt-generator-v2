@@ -2,7 +2,7 @@
 
 A free, browser-based rent receipt generator built for the Indian financial year (April–March). Generate professional, print-ready rent receipts in seconds — no signup, no backend, no cost.
 
-**Live Demo:** [https://YOUR-USERNAME.github.io/rent-receipt-generator/](https://YOUR-USERNAME.github.io/rent-receipt-generator/)
+**Live Demo:** [https://abhishekakt1.github.io/rent-receipt-generator-v2/](https://abhishekakt1.github.io/rent-receipt-generator-v2/)
 
 ---
 
@@ -55,7 +55,7 @@ This project is hosted on GitHub Pages. To deploy your own copy:
 1. Fork this repository
 2. Go to **Settings → Pages**
 3. Set source to **Deploy from branch → main → / (root)**
-4. Your site will be live at `https://YOUR-USERNAME.github.io/rent-receipt-generator/`
+4. Your site will be live at `https://abhishekakt1.github.io/rent-receipt-generator-v2/`
 
 No workflow file needed. GitHub Pages serves static HTML directly — no build step required.
 
@@ -67,7 +67,7 @@ No setup needed. Just open the file in any browser:
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR-USERNAME/rent-receipt-generator.git
+git clone https://github.com/abhishekakt1/rent-receipt-generator-v2.git
 
 # Open in browser
 open index.html        # macOS
@@ -100,4 +100,4 @@ MIT License — free to use, modify, and distribute.
 
 ---
 
-*Created by [Abhishek Tripathi](https://github.com/YOUR-USERNAME)*
+*Created by [Abhishek Tripathi](https://github.com/abhishekakt1)*
