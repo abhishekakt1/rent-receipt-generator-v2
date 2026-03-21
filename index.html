@@ -127,7 +127,8 @@ header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-
 .pv-meta{font-size:11px;color:#9a8a76;}
 .print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .14s;}
 .print-btn:hover{background:#963716;}
-.preview-area{padding:22px 16px 44px;display:flex;flex-direction:column;align-items:center;}
+.preview-area{padding:22px 16px 44px;display:flex;flex-direction:column;align-items:center;overflow-x:hidden;}
+.preview-scale-wrap{width:794px;transform-origin:top center;}
 
 /* ═══════════════════════════════════
    A4 SHEET  794 × 1122px @ 96dpi
@@ -268,26 +269,27 @@ header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-
 
 /* PRINT */
 @media print{
-  @page {
-    size: A4 portrait;
-    margin: 0;
-  }
+  @page{size:A4 portrait;margin:0;}
   .no-print,.preview-bar{display:none!important;}
   body,#previewPage{background:#fff;margin:0;padding:0;}
   .preview-area{padding:0;margin:0;display:block;}
-  .a4-sheet{
-    box-shadow:none;
-    border-radius:0;
-    width:210mm;
-    margin:0;
-    padding:0;
-  }
+  .preview-scale-wrap{width:100%!important;transform:none!important;}
+  .a4-sheet{box-shadow:none;border-radius:0;width:100%;margin:0;padding:0;}
   .receipt-slot{
     break-inside:avoid;
     page-break-inside:avoid;
-    height:74.25mm; /* 297mm / 4 */
+    height:74.25mm;
+    padding:4mm 10mm 0mm;
+    font-size:10pt;
   }
   .receipt-slot.blank{display:none!important;}
+  .r-title{font-size:12pt!important;padding:3px 14px!important;}
+  .r-period{font-size:8.5pt!important;}
+  .r-no{font-size:10pt!important;}
+  .r-field-lbl,.r-field-val{font-size:9.5pt!important;}
+  .r-total-lbl,.r-amt-box{font-size:12pt!important;}
+  .r-content{gap:6px 20px!important;}
+  .r-header{margin-bottom:6px!important;}
 }
 </style>
 </head>
@@ -559,7 +561,7 @@ function generateReceipts(){
   }
 
   const SLOTS=Math.ceil(receipts.length/4)*4;
-  let html='<div class="a4-sheet">';
+  html='<div class="preview-scale-wrap"><div class="a4-sheet">';
 
   for(let s=0;s<SLOTS;s++){
     if(s<receipts.length){
@@ -641,10 +643,22 @@ function generateReceipts(){
     }
   }
 
-  html+='</div>';
+  html+='</div></div>';
   document.getElementById('previewArea').innerHTML=html;
   document.getElementById('pvMeta').textContent=`${receipts.length} receipt${receipts.length>1?'s':''} · ${fyLabel}`;
+  scalePreview();
   showPreview();
 }
+
+/* Scale A4 sheet to fit screen on mobile */
+function scalePreview(){
+  const wrap = document.querySelector('.preview-scale-wrap');
+  if(!wrap) return;
+  const available = window.innerWidth - 32; /* 16px padding each side */
+  const scale = available < 794 ? available / 794 : 1;
+  wrap.style.transform = `scale(${scale})`;
+  wrap.style.marginBottom = scale < 1 ? `${(wrap.offsetHeight * scale) - wrap.offsetHeight}px` : '0';
+}
+window.addEventListener('resize', scalePreview);
 </script>
 <!-- SEO CONTENT: inside formPage so it hides when preview is shown -->
