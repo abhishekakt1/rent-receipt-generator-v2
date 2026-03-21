@@ -67,26 +67,34 @@
 body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;}
 
 /* APP HEADER */
-header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.22);}
+header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.22);}
 .logo{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-.3px;}
 .logo span{color:var(--accent);}
 .tagline{font-size:11px;color:#9a8a76;}
 
 /* FORM */
-.main-wrap{max-width:800px;margin:0 auto;padding:26px 18px 56px;}
-.form-panel{background:var(--card);border:1px solid var(--border);border-radius:9px;box-shadow:0 3px 16px var(--shadow);padding:26px 30px;}
+.main-wrap{max-width:800px;margin:0 auto;padding:20px 14px 56px;}
+.form-panel{background:var(--card);border:1px solid var(--border);border-radius:9px;box-shadow:0 3px 16px var(--shadow);padding:20px 18px;}
 .sec-head{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;color:var(--muted);margin-bottom:13px;padding-bottom:7px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;}
 .sdot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
 .divider{height:1px;background:var(--border);margin:20px 0;}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;}
-.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:13px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+/* g4 becomes 2-col on mobile naturally via responsive rule below */
+.g4{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .full{grid-column:1/-1;}
 .field{display:flex;flex-direction:column;gap:4px;}
 .field label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);}
-.field input,.field textarea{border:1.5px solid var(--border);border-radius:5px;padding:8px 10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);background:#fff;transition:border-color .14s;outline:none;}
+.field input,.field textarea{border:1.5px solid var(--border);border-radius:5px;padding:8px 10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);background:#fff;transition:border-color .14s;outline:none;width:100%;}
 .field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(181,69,32,.08);}
 .field textarea{resize:vertical;min-height:52px;}
+
+/* Responsive: single column on small screens */
+@media(max-width:540px){
+  .g2,.g3,.g4{grid-template-columns:1fr;}
+  header{padding:11px 16px;}
+  .tagline{display:none;}
+}
 
 .mode-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:15px;}
 .mode-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-right:3px;}
@@ -120,14 +128,16 @@ header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-
 
 /* PREVIEW */
 #previewPage{display:none;}
-.preview-bar{background:var(--ink);color:#f0ece4;padding:10px 32px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;}
-.back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 12px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all .14s;}
+.preview-bar{background:var(--ink);color:#f0ece4;padding:10px 16px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:100;}
+.back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 10px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all .14s;white-space:nowrap;}
 .back-btn:hover{border-color:#888;color:#fff;}
-.pv-title{font-size:15px;font-weight:600;}
-.pv-meta{font-size:11px;color:#9a8a76;}
-.print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .14s;}
+.pv-title{font-size:14px;font-weight:600;white-space:nowrap;}
+.pv-meta{font-size:11px;color:#9a8a76;white-space:nowrap;}
+.print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 14px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .14s;white-space:nowrap;}
 .print-btn:hover{background:#963716;}
-.preview-area{padding:22px 16px 44px;display:flex;flex-direction:column;align-items:center;overflow-x:hidden;}
+
+/* Preview area — A4 sheet scales to fit any screen */
+.preview-area{padding:16px 0 44px;display:flex;flex-direction:column;align-items:center;overflow-x:hidden;width:100%;}
 .preview-scale-wrap{width:794px;transform-origin:top center;}
 
 /* ═══════════════════════════════════
@@ -270,26 +280,42 @@ header{background:var(--ink);color:#f0ece4;padding:13px 36px;display:flex;align-
 /* PRINT */
 @media print{
   @page{size:A4 portrait;margin:0;}
-  .no-print,.preview-bar{display:none!important;}
-  body,#previewPage{background:#fff;margin:0;padding:0;}
-  .preview-area{padding:0;margin:0;display:block;}
-  .preview-scale-wrap{width:100%!important;transform:none!important;}
-  .a4-sheet{box-shadow:none;border-radius:0;width:100%;margin:0;padding:0;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .no-print,.preview-bar,#formPage,#seoContent{display:none!important;}
+  body,html{margin:0;padding:0;background:#fff;}
+  #previewPage{display:block!important;}
+  .preview-area{padding:0!important;margin:0!important;display:block!important;width:100%!important;}
+  .preview-scale-wrap{
+    width:100%!important;
+    transform:none!important;
+    margin:0!important;
+  }
+  .a4-sheet{
+    width:100%!important;
+    box-shadow:none!important;
+    border-radius:0!important;
+    margin:0!important;
+    padding:0!important;
+  }
   .receipt-slot{
-    break-inside:avoid;
-    page-break-inside:avoid;
-    height:74.25mm;
-    padding:4mm 10mm 0mm;
-    font-size:10pt;
+    height:74.25mm!important;
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+    padding:3mm 9mm 0mm!important;
+    font-size:9.5pt!important;
+    overflow:hidden!important;
   }
   .receipt-slot.blank{display:none!important;}
-  .r-title{font-size:12pt!important;padding:3px 14px!important;}
-  .r-period{font-size:8.5pt!important;}
-  .r-no{font-size:10pt!important;}
-  .r-field-lbl,.r-field-val{font-size:9.5pt!important;}
-  .r-total-lbl,.r-amt-box{font-size:12pt!important;}
-  .r-content{gap:6px 20px!important;}
-  .r-header{margin-bottom:6px!important;}
+  .r-header{margin-bottom:4px!important;}
+  .r-title{font-size:11pt!important;padding:2px 12px!important;}
+  .r-period{font-size:8pt!important;margin-top:3px!important;}
+  .r-no,.r-fy,.r-date-val{font-size:9pt!important;}
+  .r-field-lbl,.r-field-val{font-size:9pt!important;}
+  .r-content{gap:5px 16px!important;padding:2px 0!important;}
+  .r-total-lbl,.r-amt-box{font-size:11pt!important;}
+  .r-amt-box{padding:3px 10px!important;}
+  .r-sig-line{width:80px!important;}
+  .r-stamp{font-size:6.5px!important;}
 }
 </style>
 </head>
@@ -654,10 +680,12 @@ function generateReceipts(){
 function scalePreview(){
   const wrap = document.querySelector('.preview-scale-wrap');
   if(!wrap) return;
-  const available = window.innerWidth - 32; /* 16px padding each side */
+  const available = document.querySelector('.preview-area').offsetWidth;
   const scale = available < 794 ? available / 794 : 1;
   wrap.style.transform = `scale(${scale})`;
-  wrap.style.marginBottom = scale < 1 ? `${(wrap.offsetHeight * scale) - wrap.offsetHeight}px` : '0';
+  /* compensate height so parent doesn't show extra whitespace */
+  const naturalH = wrap.offsetHeight;
+  wrap.style.marginBottom = `${(naturalH * scale) - naturalH}px`;
 }
 window.addEventListener('resize', scalePreview);
 </script>
