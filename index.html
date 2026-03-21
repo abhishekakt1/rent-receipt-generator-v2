@@ -130,45 +130,39 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 #previewPage{display:none;}
 .preview-bar{
   background:var(--ink);color:#f0ece4;
-  padding:10px 14px 6px;
+  padding:10px 16px 6px;
   position:sticky;top:0;z-index:100;
-  box-sizing:border-box;
-  width:100%;
+  box-sizing:border-box;width:100%;
 }
-.pb-row1{
-  display:flex;align-items:center;gap:8px;width:100%;min-width:0;
-}
+.pb-row1{display:flex;align-items:center;gap:8px;width:100%;min-width:0;}
 .pb-row2{padding:3px 0 1px;}
-.back-btn{
-  background:none;border:1px solid #3c3028;color:#b0a07a;
-  padding:5px 10px;border-radius:5px;cursor:pointer;
-  font-family:'DM Sans',sans-serif;font-size:12px;
-  white-space:nowrap;flex-shrink:0;
-}
+.back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 10px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;white-space:nowrap;flex-shrink:0;}
 .back-btn:hover{border-color:#888;color:#fff;}
 .pv-title{font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;}
 .pv-meta{font-size:11px;color:#9a8a76;}
-.print-btn{
-  margin-left:auto;
-  background:var(--accent);color:#fff;border:none;
-  padding:7px 16px;border-radius:5px;cursor:pointer;
-  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
-  display:flex;align-items:center;gap:5px;
-  white-space:nowrap;flex-shrink:0;
-}
+.print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 16px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px;white-space:nowrap;flex-shrink:0;}
 .print-btn:hover{background:#963716;}
-.print-btn .print-label{display:inline;}
-
-/* On narrow screens: hide text label, show icon only */
+.print-label{display:inline;}
 @media(max-width:480px){
   .print-btn{padding:7px 10px;}
-  .print-btn .print-label{display:none;}
+  .print-label{display:none;}
   .pv-title{font-size:13px;}
 }
 
-/* Preview area */
-.preview-area{padding:16px 0 44px;display:flex;flex-direction:column;align-items:flex-start;overflow-x:hidden;width:100%;}
-.preview-scale-wrap{width:794px;transform-origin:top left;}
+/* Preview area — centered, max width matches A4 sheet */
+.preview-area{
+  padding:20px 0 44px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  background:var(--paper);
+}
+.preview-scale-wrap{
+  width:794px;
+  max-width:794px;
+  transform-origin:top center;
+}
 
 /* ═══════════════════════════════════
    A4 SHEET  794 × 1122px @ 96dpi
@@ -319,11 +313,10 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
   body,html{margin:0;padding:0;background:#fff;width:100%;}
   #previewPage{display:block!important;}
   .preview-area{padding:0!important;margin:0!important;display:block!important;width:100%!important;}
-  .preview-scale-wrap{width:100%!important;transform:none!important;height:auto!important;margin:0!important;padding:0!important;}
+  .preview-scale-wrap{width:100%!important;transform:none!important;height:auto!important;margin:0 auto!important;padding:0!important;max-width:100%!important;}
   .a4-sheet{width:100%!important;box-shadow:none!important;border-radius:0!important;margin:0!important;padding:0!important;transform:none!important;}
   .receipt-slot{
-    /* 297mm - 16mm (8mm top+bottom) = 281mm / 4 = 70.25mm. Use 66mm for safe buffer */
-    height:66mm!important;
+    height:60mm!important;
     break-inside:avoid!important;
     page-break-inside:avoid!important;
     padding:2mm 7mm 0mm!important;
@@ -718,12 +711,14 @@ function scalePreview(){
   if(!wrap) return;
   const available = window.innerWidth;
   const scale = available < 794 ? available / 794 : 1;
-  wrap.style.transform = `scale(${scale})`;
-  wrap.style.transformOrigin = 'top left';
-  /* shrink the wrapper's footprint so no blank gap below */
-  const naturalH = wrap.scrollHeight;
-  wrap.style.height = (naturalH * scale) + 'px';
-  wrap.style.marginBottom = '0';
+  wrap.style.transform = scale < 1 ? `scale(${scale})` : 'none';
+  wrap.style.transformOrigin = 'top center';
+  /* fix container height to avoid blank space after scaling */
+  if(scale < 1){
+    wrap.style.height = (wrap.scrollHeight * scale) + 'px';
+  } else {
+    wrap.style.height = 'auto';
+  }
 }
 window.addEventListener('resize', scalePreview);
 </script>
