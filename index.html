@@ -128,21 +128,25 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 
 /* PREVIEW */
 #previewPage{display:none;}
-.preview-bar{background:var(--ink);color:#f0ece4;padding:10px 16px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
-.back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 10px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all .14s;white-space:nowrap;}
+.preview-bar{
+  background:var(--ink);color:#f0ece4;
+  padding:10px 16px 8px;
+  position:sticky;top:0;z-index:100;
+}
+.pb-row1{
+  display:flex;align-items:center;gap:10px;width:100%;
+}
+.pb-row2{
+  padding:4px 0 2px;
+}
+.back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 10px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all .14s;white-space:nowrap;flex-shrink:0;}
 .back-btn:hover{border-color:#888;color:#fff;}
-.pv-title{font-size:14px;font-weight:600;white-space:nowrap;}
-.pv-meta{font-size:11px;color:#9a8a76;} /* allow wrapping on mobile */
-.print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 14px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .14s;white-space:nowrap;}
+.pv-title{font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;}
+.pv-meta{font-size:11px;color:#9a8a76;}
+.print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 16px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .14s;white-space:nowrap;flex-shrink:0;}
 .print-btn:hover{background:#963716;}
 
-@media(max-width:540px){
-  .preview-bar{padding:8px 12px;gap:6px;}
-  .pv-meta{width:100%;order:3;padding-top:0;font-size:10px;} /* drops to its own line */
-  .print-btn{padding:6px 12px;}
-}
-
-/* Preview area — A4 sheet scales to fit any screen */
+/* Preview area */
 .preview-area{padding:16px 0 44px;display:flex;flex-direction:column;align-items:flex-start;overflow-x:hidden;width:100%;}
 .preview-scale-wrap{width:794px;transform-origin:top left;}
 
@@ -285,51 +289,37 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 
 /* PRINT */
 @media print{
-  @page{size:A4 portrait;margin:0;}
+  @page{size:A4 portrait;margin:10mm;}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .no-print,.preview-bar,#formPage{display:none!important;}
   body,html{margin:0;padding:0;background:#fff;}
   #previewPage{display:block!important;}
   .preview-area{padding:0!important;margin:0!important;display:block!important;width:100%!important;}
-  .preview-scale-wrap{
-    width:100%!important;
-    transform:none!important;
-    height:auto!important;
-    margin:0!important;
-    padding:0!important;
-  }
-  .a4-sheet{
-    width:100%!important;
-    box-shadow:none!important;
-    border-radius:0!important;
-    margin:0!important;
-    padding:0!important;
-    /* scale slightly to fit within iOS Safari's forced page margins */
-    transform:scale(0.97);
-    transform-origin:top left;
-  }
+  .preview-scale-wrap{width:100%!important;transform:none!important;height:auto!important;margin:0!important;padding:0!important;}
+  .a4-sheet{width:100%!important;box-shadow:none!important;border-radius:0!important;margin:0!important;padding:0!important;transform:none!important;}
   .receipt-slot{
-    height:74.25mm!important;
+    /* 297mm - 20mm margins = 277mm / 4 = 69.25mm. Use 68mm to be safe */
+    height:68mm!important;
     break-inside:avoid!important;
     page-break-inside:avoid!important;
-    padding:3mm 9mm 0mm!important;
-    font-size:9pt!important;
+    padding:2mm 8mm 0mm!important;
+    font-size:8.5pt!important;
     overflow:hidden!important;
     display:grid!important;
   }
   .receipt-slot.blank{display:none!important;}
-  .r-header{margin-bottom:3px!important;grid-template-columns:80px 1fr 80px!important;}
-  .r-title{font-size:10pt!important;padding:2px 10px!important;letter-spacing:1px!important;}
-  .r-period{font-size:7.5pt!important;margin-top:2px!important;}
-  .r-no,.r-fy,.r-date-val,.r-date-lbl{font-size:8pt!important;}
-  .r-field-lbl,.r-field-val{font-size:8pt!important;}
-  .r-content{gap:3px 12px!important;padding:1px 0!important;}
-  .r-footer{gap:6px!important;padding-top:2px!important;}
-  .r-total-lbl,.r-amt-box{font-size:10pt!important;}
-  .r-amt-box{padding:2px 8px!important;}
-  .r-sig-line{width:70px!important;}
-  .r-stamp{font-size:6pt!important;width:44px!important;height:32px!important;}
-  .r-sig-lbl{font-size:7pt!important;}
+  .r-header{margin-bottom:2px!important;grid-template-columns:75px 1fr 75px!important;}
+  .r-title{font-size:9.5pt!important;padding:2px 8px!important;letter-spacing:1px!important;}
+  .r-period{font-size:7pt!important;margin-top:2px!important;}
+  .r-no,.r-fy,.r-date-val,.r-date-lbl{font-size:7.5pt!important;}
+  .r-field-lbl,.r-field-val{font-size:7.5pt!important;}
+  .r-content{gap:2px 10px!important;padding:1px 0!important;}
+  .r-footer{gap:4px!important;padding-top:1px!important;}
+  .r-total-lbl,.r-amt-box{font-size:9pt!important;}
+  .r-amt-box{padding:2px 6px!important;}
+  .r-sig-line{width:60px!important;}
+  .r-stamp{font-size:5.5pt!important;width:38px!important;height:28px!important;}
+  .r-sig-lbl{font-size:6.5pt!important;}
 }
 </style>
 </head>
@@ -465,13 +455,17 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 <!-- ════════ PREVIEW PAGE ════════ -->
 <div id="previewPage">
   <div class="preview-bar no-print">
-    <button class="back-btn" onclick="showForm()">← Back</button>
-    <span class="pv-title">Receipt Preview</span>
-    <span class="pv-meta" id="pvMeta"></span>
-    <button class="print-btn" onclick="window.print()">
-      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Print
-    </button>
+    <div class="pb-row1">
+      <button class="back-btn" onclick="showForm()">← Back</button>
+      <span class="pv-title">Receipt Preview</span>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print
+      </button>
+    </div>
+    <div class="pb-row2">
+      <span class="pv-meta" id="pvMeta"></span>
+    </div>
   </div>
   <div class="preview-area" id="previewArea"></div>
 </div>
