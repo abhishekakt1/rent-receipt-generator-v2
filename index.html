@@ -128,13 +128,19 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 
 /* PREVIEW */
 #previewPage{display:none;}
-.preview-bar{background:var(--ink);color:#f0ece4;padding:10px 16px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:100;}
+.preview-bar{background:var(--ink);color:#f0ece4;padding:10px 16px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
 .back-btn{background:none;border:1px solid #3c3028;color:#b0a07a;padding:5px 10px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all .14s;white-space:nowrap;}
 .back-btn:hover{border-color:#888;color:#fff;}
 .pv-title{font-size:14px;font-weight:600;white-space:nowrap;}
-.pv-meta{font-size:11px;color:#9a8a76;white-space:nowrap;}
+.pv-meta{font-size:11px;color:#9a8a76;} /* allow wrapping on mobile */
 .print-btn{margin-left:auto;background:var(--accent);color:#fff;border:none;padding:7px 14px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;transition:all .14s;white-space:nowrap;}
 .print-btn:hover{background:#963716;}
+
+@media(max-width:540px){
+  .preview-bar{padding:8px 12px;gap:6px;}
+  .pv-meta{width:100%;order:3;padding-top:0;font-size:10px;} /* drops to its own line */
+  .print-btn{padding:6px 12px;}
+}
 
 /* Preview area — A4 sheet scales to fit any screen */
 .preview-area{padding:16px 0 44px;display:flex;flex-direction:column;align-items:flex-start;overflow-x:hidden;width:100%;}
@@ -292,7 +298,16 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
     margin:0!important;
     padding:0!important;
   }
-  .a4-sheet{width:100%!important;box-shadow:none!important;border-radius:0!important;margin:0!important;padding:0!important;}
+  .a4-sheet{
+    width:100%!important;
+    box-shadow:none!important;
+    border-radius:0!important;
+    margin:0!important;
+    padding:0!important;
+    /* scale slightly to fit within iOS Safari's forced page margins */
+    transform:scale(0.97);
+    transform-origin:top left;
+  }
   .receipt-slot{
     height:74.25mm!important;
     break-inside:avoid!important;
