@@ -234,8 +234,9 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 }
 
 /* When other charges present — tighten everything to fit 6 rows */
-.receipt-slot.has-other .r-content{gap:8px 32px;padding:2px 0;}
-.receipt-slot.has-other .r-header{margin-bottom:6px;}
+.receipt-slot.has-other{grid-template-rows:auto 1fr auto 44px!important;}
+.receipt-slot.has-other .r-content{gap:6px 32px;padding:0;}
+.receipt-slot.has-other .r-header{margin-bottom:4px;}
 .receipt-slot.has-other .r-field-lbl,
 .receipt-slot.has-other .r-field-val{font-size:12.5px;}
 .receipt-slot.has-other .r-title{font-size:14px;padding:3px 16px;}
