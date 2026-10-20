@@ -851,9 +851,16 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
   .receipt-slot.has-other .r-field-lbl,
   .receipt-slot.has-other .r-field-val{ font-size:7.5pt!important; }
 }
+
+/* Build tag — tiny, bottom-right, visible on screen and print */
+.build-tag{position:fixed;bottom:4px;right:6px;font-family:'DM Sans',sans-serif;
+  font-size:9px;color:#b0a899;letter-spacing:.3px;z-index:9999;pointer-events:none;}
+@media print{ .build-tag{position:fixed;bottom:2mm;right:3mm;color:#999!important;font-size:7pt;} }
 </style>
 </head>
 <body>
+
+<div class="build-tag">build b008 · 2026-10-20 15:40</div>
 
 <!-- ════════ FORM PAGE ════════ -->
 <div id="formPage">
