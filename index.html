@@ -324,7 +324,7 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 
   html,body{
     margin:0!important; padding:0!important; background:#fff!important;
-    width:auto!important; height:auto!important;
+    width:auto!important; height:auto!important; min-height:0!important; max-height:none!important;
     -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;
     -webkit-text-size-adjust:100%!important; text-size-adjust:100%!important;
   }
@@ -348,8 +348,7 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
     box-sizing:border-box!important;
     padding:0 8mm!important;            /* side margins only; NO vertical padding */
     box-shadow:none!important; border-radius:0!important;
-    margin:0!important;
-    transform:scale(0.94)!important; transform-origin:top center!important;
+    margin:0!important; transform:none!important;
     display:flex!important; flex-direction:column!important;
     overflow:hidden!important;
     break-inside:avoid!important; page-break-inside:avoid!important;
@@ -393,6 +392,9 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
   .receipt-slot.has-other .r-content{ gap:2px 16px!important; }
   .receipt-slot.has-other .r-field-lbl,
   .receipt-slot.has-other .r-field-val{ font-size:7.5pt!important; }
+
+  /* Belt-and-suspenders: nothing in the print flow may impose a viewport-height min. */
+  #previewPage,.preview-area,.preview-scale-wrap,.a4-sheet{ min-height:0!important; }
 }
 
 /* Build tag — tiny, bottom-right, visible on screen and print */
@@ -403,7 +405,7 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 </head>
 <body>
 
-<div class="build-tag">build b012 · 2026-10-20 16:11 (scale-fit)</div>
+<div class="build-tag">build b013 · 2026-10-20 16:31 (minh-fix)</div>
 
 <!-- ════════ FORM PAGE ════════ -->
 <div id="formPage">
