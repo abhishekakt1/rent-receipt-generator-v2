@@ -348,7 +348,8 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
     box-sizing:border-box!important;
     padding:0 8mm!important;            /* side margins only; NO vertical padding */
     box-shadow:none!important; border-radius:0!important;
-    margin:0!important; transform:none!important;
+    margin:0!important;
+    transform:scale(0.94)!important; transform-origin:top center!important;
     display:flex!important; flex-direction:column!important;
     overflow:hidden!important;
     break-inside:avoid!important; page-break-inside:avoid!important;
@@ -360,8 +361,8 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
      a slot shrink rather than push a sibling onto a new page. No per-slot
      page-break property that could force a break. */
   .receipt-slot{
-    flex:0 0 64mm!important;
-    height:64mm!important; min-height:64mm!important; max-height:64mm!important;
+    flex:0 0 66mm!important;
+    height:66mm!important; min-height:66mm!important; max-height:66mm!important;
     box-sizing:border-box!important;
     padding:3mm 7mm 1mm!important;
     font-size:10pt!important;
@@ -402,7 +403,7 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 </head>
 <body>
 
-<div class="build-tag">build b010 · 2026-10-20 15:54 (print-fix)</div>
+<div class="build-tag">build b012 · 2026-10-20 16:11 (scale-fit)</div>
 
 <!-- ════════ FORM PAGE ════════ -->
 <div id="formPage">
