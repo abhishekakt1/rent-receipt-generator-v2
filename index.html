@@ -10,13 +10,13 @@
 <meta name="keywords" content="rent receipt generator, rent receipt India, free rent receipt, HRA rent receipt, house rent receipt, quarterly rent receipt, monthly rent receipt, rent receipt with PAN, landlord receipt, tenant rent receipt, Indian rent receipt format, rent receipt for income tax, HRA exemption receipt, printable rent receipt">
 <meta name="author" content="Rent Receipt Generator">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://YOUR-USERNAME.github.io/rent-receipt-generator/">
+<link rel="canonical" href="https://abhishekakt1.github.io/rent-receipt-generator-v2/">
 
 <!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Free Rent Receipt Generator India | Print-Ready | Quarterly & Monthly">
 <meta property="og:description" content="Instantly generate professional rent receipts for India. Quarterly or monthly, with PAN card, HRA-compliant. Free, no signup, print-ready A4.">
-<meta property="og:url" content="https://YOUR-USERNAME.github.io/rent-receipt-generator/">
+<meta property="og:url" content="https://abhishekakt1.github.io/rent-receipt-generator-v2/">
 <meta property="og:site_name" content="Rent Receipt Generator">
 <meta property="og:locale" content="en_IN">
 
@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Rent Receipt Generator India",
-  "url": "https://YOUR-USERNAME.github.io/rent-receipt-generator/",
+  "url": "https://abhishekakt1.github.io/rent-receipt-generator-v2/",
   "description": "Free online tool to generate professional rent receipts for India. Supports quarterly and monthly receipts, landlord PAN, HRA compliance, and A4 print format.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
@@ -313,53 +313,78 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 .r-sig-line{width:110px;height:1px;background:#16120d;}
 .r-sig-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
 
-/* PRINT — desktop */
+/* ═══════════ PRINT — unified, all platforms ═══════════
+   One A4 portrait sheet. 4 slots divide the printable area by 25% each,
+   so they always fit exactly on ONE page regardless of device rounding.
+   No device-width media query (iOS Safari misreports it when printing). */
 @media print{
-  @page{size:A4 portrait;margin:10mm;}
-  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .no-print,.preview-bar,#formPage{display:none!important;}
-  body,html{margin:0;padding:0;background:#fff;}
-  #previewPage{display:block!important;}
-  .preview-area{padding:0!important;margin:0!important;display:block!important;width:100%!important;}
-  .preview-scale-wrap{width:100%!important;transform:none!important;height:auto!important;margin:0!important;padding:0!important;}
-  .a4-sheet{width:100%!important;box-shadow:none!important;border-radius:0!important;margin:0!important;padding:0!important;transform:none!important;}
+  @page{ size:A4 portrait; margin:8mm; }
+
+  html,body{
+    margin:0!important; padding:0!important; background:#fff!important;
+    -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important;
+    -webkit-text-size-adjust:100%!important; text-size-adjust:100%!important;
+  }
+  *{ -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; }
+
+  .no-print,.preview-bar,#formPage{ display:none!important; }
+  #previewPage{ display:block!important; }
+
+  .preview-area{ padding:0!important; margin:0!important; display:block!important; width:100%!important; background:#fff!important; }
+  .preview-scale-wrap{
+    width:100%!important; transform:none!important;
+    height:auto!important; margin:0!important; padding:0!important;
+  }
+
+  /* The sheet fills exactly the printable area (A4 height minus @page margins):
+     297mm - 16mm = 281mm. Fixed height lets the 4 slots use % and divide evenly. */
+  .a4-sheet{
+    width:100%!important; height:281mm!important;
+    box-shadow:none!important; border-radius:0!important;
+    margin:0!important; padding:0!important; transform:none!important;
+    display:flex!important; flex-direction:column!important;
+    break-inside:avoid!important; page-break-inside:avoid!important;
+    break-after:avoid!important; page-break-after:avoid!important;
+    overflow:hidden!important;
+  }
+
+  /* Each receipt = a quarter of the sheet. flex:1 + height:25% both stated
+     so Safari (which honours one or the other) always lands on 1/4. */
   .receipt-slot{
-    /* 297mm - 20mm (10mm top+bottom) = 277mm / 4 = 69.25mm */
-    height:69mm!important;
-    break-inside:avoid!important;
-    page-break-inside:avoid!important;
-    padding:12px 24px 0px!important;
-    font-size:13px!important;
+    flex:1 1 25%!important;
+    height:25%!important; max-height:25%!important;
+    box-sizing:border-box!important;
+    padding:4mm 7mm 2mm!important;
+    font-size:10.5pt!important;
     overflow:hidden!important;
     display:grid!important;
-    grid-template-rows:auto 1fr auto 28px!important;
+    grid-template-rows:auto 1fr auto auto!important;
+    break-inside:avoid!important; page-break-inside:avoid!important;
+    border-bottom:1px dashed #c0b8a6!important;
   }
-  .receipt-slot.blank{display:none!important;}
-}
+  .receipt-slot:last-child{ border-bottom:none!important; }
+  .receipt-slot.blank{ display:none!important; }
 
-/* PRINT — mobile only */
-@media print and (max-device-width:768px){
-  @page{size:A4 portrait;margin:8mm;}
-  *{-webkit-text-size-adjust:100%;}
-  .receipt-slot{
-    height:60mm!important;
-    padding:2mm 7mm 0mm!important;
-    font-size:8pt!important;
-    grid-template-rows:auto 1fr auto 20mm!important;
-  }
-  .r-header{margin-bottom:2px!important;grid-template-columns:70px 1fr 70px!important;}
-  .r-title{font-size:9pt!important;padding:2px 8px!important;letter-spacing:1px!important;}
-  .r-period{font-size:6.5pt!important;margin-top:2px!important;}
-  .r-no,.r-fy,.r-date-val,.r-date-lbl{font-size:7pt!important;}
-  .r-field-lbl,.r-field-val{font-size:7pt!important;}
-  .r-content{gap:2px 8px!important;padding:0!important;}
-  .r-footer{gap:4px!important;padding-top:0!important;margin-top:0!important;}
-  .r-total-lbl{font-size:9pt!important;}
-  .r-amt-box{font-size:9pt!important;padding:2px 6px!important;}
-  .r-sig-line{width:56px!important;}
-  .r-stamp{font-size:5pt!important;width:36px!important;height:26px!important;}
-  .r-sig-lbl{font-size:6pt!important;}
-  .r-footer-left{gap:6px!important;}
+  /* Tighten inner type so content never forces a slot taller than its 25% */
+  .r-header{ margin-bottom:3px!important; grid-template-columns:90px 1fr 90px!important; }
+  .r-title{ font-size:11pt!important; padding:3px 12px!important; letter-spacing:1.2px!important; }
+  .r-period{ font-size:7.5pt!important; margin-top:2px!important; }
+  .r-no{ font-size:9pt!important; } .r-fy{ font-size:8pt!important; }
+  .r-date-lbl{ font-size:7.5pt!important; } .r-date-val{ font-size:9pt!important; }
+  .r-field-lbl,.r-field-val{ font-size:8.5pt!important; }
+  .r-content{ gap:4px 16px!important; padding:2px 0!important; }
+  .r-footer{ gap:10px!important; padding-top:2px!important; }
+  .r-total-lbl{ font-size:11pt!important; }
+  .r-amt-box{ font-size:11pt!important; padding:3px 10px!important; }
+  .r-sig-line{ width:80px!important; }
+  .r-stamp{ font-size:6pt!important; width:48px!important; height:32px!important; }
+  .r-sig-lbl{ font-size:7pt!important; }
+  .r-footer-left{ gap:8px!important; }
+
+  /* has-other: slightly tighter to fit the extra line within 25% */
+  .receipt-slot.has-other .r-content{ gap:2px 16px!important; }
+  .receipt-slot.has-other .r-field-lbl,
+  .receipt-slot.has-other .r-field-val{ font-size:8pt!important; }
 }
 </style>
 </head>
@@ -389,7 +414,7 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
         </div>
         <div class="field">
           <label>PAN Number <span style="font-weight:400;text-transform:none">(optional)</span></label>
-          <input id="landlordPAN" type="text" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase"/>
+          <input id="landlordPAN" type="text" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase" oninput="maskPAN(this)" autocomplete="off"/>
         </div>
         <div class="field full">
           <label>Rental Property Address</label>
@@ -416,8 +441,8 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
           <input id="monthlyRent" type="number" placeholder="e.g. 15000" min="0"/>
         </div>
         <div class="field">
-          <label>Other Charges (₹) <span style="font-weight:400;text-transform:none">(optional)</span></label>
-          <input id="otherCharges" type="number" placeholder="e.g. 500" min="0"/>
+          <label>Other Charges (₹/month) <span style="font-weight:400;text-transform:none">(optional)</span></label>
+          <input id="otherCharges" type="number" placeholder="e.g. 500" min="0" title="Per-month amount — multiplied across the receipt period"/>
         </div>
         <div class="field">
           <label>Other Charges Label <span style="font-weight:400;text-transform:none">(optional)</span></label>
@@ -511,6 +536,26 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 </div>
 
 <script>
+function maskPAN(el){
+  // PAN structure: 5 letters, 4 digits, 1 letter (AAAAA9999A)
+  const raw = el.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  let out = '';
+  for(let i=0; i<raw.length && out.length<10; i++){
+    const c = raw[i];
+    const pos = out.length;           // position being filled (0-based)
+    if(pos < 5){ if(/[A-Z]/.test(c)) out += c; }        // slots 0-4: letters
+    else if(pos < 9){ if(/[0-9]/.test(c)) out += c; }   // slots 5-8: digits
+    else { if(/[A-Z]/.test(c)) out += c; }              // slot 9: letter
+  }
+  el.value = out;
+  // live validity hint via border colour (reuses accent/green tokens)
+  if(out.length === 10){
+    el.style.borderColor = /^[A-Z]{5}[0-9]{4}[A-Z]$/.test(out) ? '#1d5438' : 'var(--accent)';
+  } else {
+    el.style.borderColor = '';
+  }
+}
+
 function updateFyLabel(){
   const y=parseInt(document.getElementById('fyYear').value)||2025;
   document.getElementById('fyDerived').textContent=`FY ${y}–${(y+1).toString().slice(-2)}`;
@@ -585,6 +630,7 @@ function receiptDate(months,fy){
   return `01-${MN3[m]}-${y}`;
 }
 
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function inr(n){return new Intl.NumberFormat('en-IN').format(n);}
 
 const ONES=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
@@ -623,6 +669,19 @@ function generateReceipts(){
   const fy       = parseInt(document.getElementById('fyYear').value)||2025;
   const fyLabel  = `FY ${fy}–${(fy+1).toString().slice(-2)}`;
 
+  // PAN format check (optional field, but must be valid if provided)
+  if(pan && !/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(pan)){
+    alert('PAN looks invalid. Expected format: ABCDE1234F (5 letters, 4 digits, 1 letter).');
+    return;
+  }
+  // HRA rule: landlord PAN is mandatory when annual rent exceeds ₹1,00,000
+  const annualRent = mRent * 12;
+  if(annualRent > 100000 && !pan){
+    if(!confirm('Annual rent exceeds ₹1,00,000. Landlord PAN is mandatory for HRA exemption under Section 10(13A). Continue without PAN anyway?')){
+      return;
+    }
+  }
+
   let receipts=[];
   if(mode==='qtr-all'){
     QUARTERS.forEach(q=>receipts.push({months:q.nums}));
@@ -635,7 +694,7 @@ function generateReceipts(){
   }
 
   const SLOTS=Math.ceil(receipts.length/4)*4;
-  html='<div class="preview-scale-wrap"><div class="a4-sheet">';
+  let html='<div class="preview-scale-wrap"><div class="a4-sheet">';
 
   for(let s=0;s<SLOTS;s++){
     if(s<receipts.length){
@@ -671,27 +730,27 @@ function generateReceipts(){
         <div class="r-content">
           <div class="r-field">
             <span class="r-field-lbl">Landlord:</span>
-            <span class="r-field-val">${landlord}${pan?` (PAN: ${pan})`:''}</span>
+            <span class="r-field-val">${esc(landlord)}${pan?` (PAN: ${esc(pan)})`:''}</span>
           </div>
           <div class="r-field col2">
             <span class="r-field-lbl">Tenant:</span>
-            <span class="r-field-val">${tenant}</span>
+            <span class="r-field-val">${esc(tenant)}</span>
           </div>
           <div class="r-field full-row">
             <span class="r-field-lbl">Property Address:</span>
-            <span class="r-field-val">${addrLine}</span>
+            <span class="r-field-val">${esc(addrLine)}</span>
           </div>
           <div class="r-field">
             <span class="r-field-lbl">Monthly Rent:</span>
-            <span class="r-field-val">₹ ${inr(mRent)}</span>
+            <span class="r-field-val">₹ ${inr(mRent)}${r.months.length>1?` /mo × ${r.months.length}`:''}</span>
           </div>
           <div class="r-field col2">
             <span class="r-field-lbl">From:</span>
             <span class="r-field-val">${fromLabel}&nbsp;&nbsp;<span style="font-weight:700;">To:</span>&nbsp;${toLabel}</span>
           </div>
           ${other>0?`<div class="r-field full-row">
-            <span class="r-field-lbl">${otherLbl}:</span>
-            <span class="r-field-val">₹ ${inr(other)}</span>
+            <span class="r-field-lbl">${esc(otherLbl)}:</span>
+            <span class="r-field-val">₹ ${inr(other)}${r.months.length>1?` /mo × ${r.months.length} = ₹ ${inr(other*r.months.length)}`:''}</span>
           </div>`:''}
           <div class="r-field full-row">
             <span class="r-field-lbl">The Sum of Rupees:</span>
