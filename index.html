@@ -802,9 +802,9 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
      iOS can never tip it into a 2nd page. Content box = 296 - 12 = 284mm. */
   .a4-sheet{
     width:100%!important;
-    height:auto!important; max-height:272mm!important;
+    height:auto!important;
     box-sizing:border-box!important;
-    padding:6mm 8mm!important;
+    padding:0 8mm!important;            /* side margins only; NO vertical padding */
     box-shadow:none!important; border-radius:0!important;
     margin:0!important; transform:none!important;
     display:flex!important; flex-direction:column!important;
@@ -818,8 +818,8 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
      a slot shrink rather than push a sibling onto a new page. No per-slot
      page-break property that could force a break. */
   .receipt-slot{
-    flex:0 0 66mm!important;
-    height:66mm!important; min-height:66mm!important; max-height:66mm!important;
+    flex:0 0 64mm!important;
+    height:64mm!important; min-height:64mm!important; max-height:64mm!important;
     box-sizing:border-box!important;
     padding:3mm 7mm 1mm!important;
     font-size:10pt!important;
