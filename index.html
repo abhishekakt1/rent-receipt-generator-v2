@@ -402,7 +402,7 @@ header{background:var(--ink);color:#f0ece4;padding:13px 20px;display:flex;align-
 </head>
 <body>
 
-<div class="build-tag">build b009 · 2026-10-20 15:49 (clean)</div>
+<div class="build-tag">build b010 · 2026-10-20 15:54 (print-fix)</div>
 
 <!-- ════════ FORM PAGE ════════ -->
 <div id="formPage">
@@ -814,6 +814,35 @@ function scalePreview(){
   }
 }
 window.addEventListener('resize', scalePreview);
+
+/* ── Print fix: neutralise the on-screen scale transform/height before printing ──
+   scalePreview() sets inline transform:scale() + an inline pixel height on the
+   wrap for the mobile on-screen preview. Those inline styles distort print
+   layout on iOS Safari (transform creates a containing block; the scaled
+   pixel-height skews the sheet), pushing the 4th receipt onto page 2.
+   Strip them for the print snapshot, restore after. */
+function stripScaleForPrint(){
+  const wrap=document.querySelector('.preview-scale-wrap');
+  if(!wrap) return;
+  wrap.dataset.savedTransform = wrap.style.transform||'';
+  wrap.dataset.savedHeight = wrap.style.height||'';
+  wrap.style.transform='none';
+  wrap.style.height='auto';
+}
+function restoreScaleAfterPrint(){
+  const wrap=document.querySelector('.preview-scale-wrap');
+  if(!wrap) return;
+  scalePreview(); /* recompute for current screen width */
+}
+window.addEventListener('beforeprint', stripScaleForPrint);
+window.addEventListener('afterprint', restoreScaleAfterPrint);
+/* Safari (incl. iOS) historically fires matchMedia('print') instead of beforeprint */
+if(window.matchMedia){
+  const mql=window.matchMedia('print');
+  const onCh=(m)=>{ m.matches ? stripScaleForPrint() : restoreScaleAfterPrint(); };
+  if(mql.addEventListener) mql.addEventListener('change', onCh);
+  else if(mql.addListener) mql.addListener(onCh);
+}
 </script>
 <!-- SEO CONTENT: inside formPage so it hides when preview is shown -->
 </body></html>
